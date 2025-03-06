@@ -26,7 +26,7 @@ A responsive web app.
 
 
 ## 🛠️ Tech stack
-- Next.Js
+- Next.js
 - TypeScript
 - Supabase - to store user profiles, posts, AI tooltips
 - NextAuth
