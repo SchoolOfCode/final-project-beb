@@ -1,0 +1,177 @@
+.pageContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f8f5f3;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  
+  .ForumContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 80vw;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: #feb8b8;
+  
+    overflow: hidden;
+  }
+  
+  .titleContainer {
+    display: flex;
+    height: 100vh;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  
+  .eventCarouselLogoDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100vh;
+    width: 19.9vw;
+  }
+  
+  .eventCarouselDiv {
+    display: flex;
+    height: 100%;
+  }
+  .boardContainer {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 58vw;
+  
+    justify-content: center;
+  }
+  
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 61vw;
+    padding-bottom: 10px;
+  }
+  .titleButtonContainer {
+    max-width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .ForumBoard {
+    width: 60vw;
+    height: 60vh;
+    border: 1px solid #ddd;
+    overflow-y: auto; /* Prevents scrollbar from going outside */
+    background-color: #f8f5f3;
+    padding: 10px;
+    border-radius: 5vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden;
+  }
+  
+  /* Scrollbar styling */
+  .ForumBoard::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+    height: 10vh;
+  }
+  
+  .ForumBoard::-webkit-scrollbar-thumb {
+    background: grey; /* Scrollbar color */
+    border-radius: 5vh;
+  }
+  
+  .ForumBoard::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5vh;
+  }
+  .post {
+    background-color: #dfdfdf;
+    border-radius: 3vh;
+    font-family: "N-Light";
+    padding: 2vh;
+    margin: 10px;
+    font-size: 1.8vh;
+  }
+  
+  .Carousel {
+    height: 100vh;
+    border: 1px solid #ddd;
+  
+    border-radius: 30px;
+  }
+  .PostCreator {
+    display: flex;
+  
+    font-family: "N-Light";
+    border-radius: 20px;
+    width: 60vw;
+    flex-direction: column;
+    background-color: transparent;
+  }
+  
+  .Post {
+    background-color: white;
+  }
+  
+  .flockLogo {
+    font-family: "N-ExtraBold";
+    font-size: 2.5vw;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  .hubName {
+    font-family: "N-Extrabold";
+    font-size: 2vw;
+    letter-spacing: 2px;
+    max-width: 100%;
+  }
+  
+  .bodyInputBox {
+    border: none;
+    border-radius: 30px;
+    resize: none;
+    padding: 14px;
+    margin-top: 15px;
+    font-family: "N-Light";
+    font-size: 18px;
+    height: 10vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .titleBox {
+    width: 85%;
+    border: none;
+    font-family: "N-Light";
+    font-size: 18px;
+    padding: 5px;
+    padding-left: 12px;
+    height: 4vh;
+    margin-top: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .submitButton {
+    border: none;
+    font-family: "N-Light";
+    font-size: 18px;
+    padding: 10px;
+    height: 5vh;
+    width: 5vw;
+    margin-top: 35px;
+    border-radius: 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  

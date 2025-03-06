@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+:root {
+  background-color: #f8f5f3;
+}
+
 @font-face {
   font-family: "J-Bold";
   src: url("/Junicode/Junicode-Bold.ttf");

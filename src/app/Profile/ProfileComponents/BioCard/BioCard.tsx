@@ -51,10 +51,18 @@ export default function BioCard({
             <span className={styles.boldBio}></span> Hi I&apos;m Lara 🌸
           </p>
           <p>I&apos;m based in the UK!</p>
-          <p>I love stamp collecting and Art!</p>
+          <p>
+            I love stamp collecting and Art!
+            <br />I have a miniature labradoodle called Chris who comes with me
+            everywhere I go 🐕 If you want to reach out, I would love to
+            connect.
+          </p>
           <br />
           <p>
-            <span className={styles.boldBio}>Name:</span> Lara Thompson
+            <span className={styles.boldBio}>Lar297</span>
+          </p>
+          <p>
+            <span className={styles.boldBio}></span> Lara Thompson
           </p>
           <p>
             <span className={styles.boldBio}>Email:</span> lara97@hotmail.co.uk

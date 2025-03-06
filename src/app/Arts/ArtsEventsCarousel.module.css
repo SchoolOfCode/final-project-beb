@@ -1,0 +1,89 @@
+.eventsContainer {
+    width: 100%;
+    height: 90vh;
+    margin-top: 4.5vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f5f3;
+    border-radius: 20px;
+    padding: 1vh 1vw; /* More padding with responsive units */
+  }
+  
+  .eventsContainer h2 {
+    text-align: left;
+    margin-bottom: 2vh;
+    font-family: "N-Light", sans-serif;
+    color: #333;
+    font-size: 2.2vh; /* Responsive font size */
+  }
+  
+  .eventsList {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; /* Increased gap between cards */
+    padding: 0 0.5vw 0 0;
+    height: calc(100% - 4vh); /* Adjust based on your heading size */
+  }
+  
+  .eventCard {
+    background-color: #dfdfdf;
+    border-radius: 15px;
+    padding: 1vh 1vw; /* Responsive padding */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 15vh; /* Minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .eventCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .eventCard h3 {
+    margin-top: 0;
+    margin-bottom: 1vh;
+    font-family: "N-Light", sans-serif;
+    font-size: 2vh; /* Responsive font size */
+  }
+  
+  .eventCard p {
+    margin: 0.8vh 0;
+    font-family: "N-Light", sans-serif;
+    font-size: 2vh;
+    overflow-y: hidden; /* Responsive font size */
+  }
+  
+  /* Custom scrollbar */
+  .eventsList::-webkit-scrollbar {
+    width: 0.6vw; /* Responsive scrollbar width */
+  }
+  
+  .eventsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .eventsList::-webkit-scrollbar-thumb {
+    background: #dfdfdf;
+    border-radius: 10px;
+  }
+  
+  .eventsList::-webkit-scrollbar-thumb:hover {
+    background: #dfdfdf;
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 1200px) {
+    .eventCard {
+      min-height: 18vh; /* Taller cards on bigger screens */
+    }
+  
+    .eventsList {
+      gap: 2.5vh; /* More spacing on larger screens */
+    }
+  }
+  

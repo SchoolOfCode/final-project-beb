@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import EventCarousel from "../components/Events/EventsCarousel";
-import styles from "./SingleHub.module.css";
+import EventCarousel from "./PhotographyEventsCarousel";
+import styles from "./Photography.module.css";
 
 interface Post {
   post_id: string;
@@ -21,14 +21,14 @@ export default function SingleHub() {
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostContent, setNewPostContent] = useState("");
   // const [newComment, setNewComment] = useState(""); // For managing new comment input
-  const [currentHub, setCurrentHub] = useState(4);
+  const [currentHub, setCurrentHub] = useState(5);
   const [currentUser, setCurrentUser] = useState(
     "3c0e53ff-25d9-4425-830a-6804b3194455"
   );
 
   // --- for solving deployment issues ---
   useEffect(() => {
-    setCurrentHub(4);
+    setCurrentHub(5);
     setCurrentUser("3c0e53ff-25d9-4425-830a-6804b3194455");
   }, []);
   // --- end of solving deployment issues ---
@@ -37,7 +37,7 @@ export default function SingleHub() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("/api/posts?interest_id=4");
+        const response = await fetch("/api/posts?interest_id=5");
         const fetchedPosts = await response.json();
         setPosts(
           Array.isArray(fetchedPosts)
@@ -120,18 +120,17 @@ export default function SingleHub() {
     <div className={styles.pageContainer}>
       <div className={styles.ForumContainer}>
         <div className={styles.titleContainer}>
-          <p className={styles.hubName}>stamps</p>
+          <p className={styles.hubName}>photography</p>
         </div>
         <div className={styles.boardContainer}>
-          <div className={styles.scrollContainer}>
-            <div className={styles.ForumBoard}>
-              {posts.map((post) => (
-                <div key={post.post_id} className={styles.post}>
-                  <h2>{post.post_title}</h2>
-                  <p>{post.post_text}</p>
+          <div className={styles.ForumBoard}>
+            {posts.map((post) => (
+              <div key={post.post_id} className={styles.post}>
+                <h2>{post.post_title}</h2>
+                <p>{post.post_text}</p>
 
-                  {/* Comments Section */}
-                  {/* <div className={styles.CommentsSection}>
+                {/* Comments Section */}
+                {/* <div className={styles.CommentsSection}>
                   <h3>Comments:</h3>
                   {post.comments.length > 0 ? (
                     post.comments.map((comment, index) => (
@@ -146,8 +145,8 @@ export default function SingleHub() {
                     <p>No comments yet.</p>
                   )} */}
 
-                  {/* Comment input for each post */}
-                  {/* <input
+                {/* Comment input for each post */}
+                {/* <input
                                     type="text"
                                     value={newComment}
                                     placeholder="Write a comment..."
@@ -158,10 +157,9 @@ export default function SingleHub() {
                                         }
                                     }}
                                 /> */}
-                  {/* </div> */}
-                </div>
-              ))}
-            </div>
+                {/* </div> */}
+              </div>
+            ))}
           </div>
           {/* Create Post Section */}
           <div className={styles.PostCreator}>
@@ -190,10 +188,10 @@ export default function SingleHub() {
         </div>
       </div>
       <div className={styles.eventCarouselLogoDiv}>
-        <p className={styles.flockLogo}>FLOCK</p>
-        <div className={styles.eventCarouselDiv}>
+         <p className={styles.flockLogo}>FLOCK</p>
+         <div className={styles.eventCarouselDiv}>
           <EventCarousel />
-        </div>
+        </div> 
       </div>
     </div>
   );

@@ -10,6 +10,8 @@ const HomeHubContainer = () => {
     return (
         <div>
           <HubCard label="Stamps" href="/SingleHub"/>
+          <HubCard label="Photography" href="/Photography"/>
+          <HubCard label="Art" href="/Arts"/>
         </div>
       );
     };

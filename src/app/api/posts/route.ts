@@ -6,6 +6,22 @@ import { NextResponse } from 'next/server';
 // }
 //Wasn't working because no API between the Client and Server side
 //API route to fetch posts by interests
+interface PostRequest {
+    user_id: string;
+    interest_id: number;  // Changed to number since that's what your component sends
+    post_title: string;
+    post_text: string;
+}
+
+// Interface for the response
+interface PostResponse {
+    post_id: string;
+    interest_id: number;
+    post_title: string;
+    post_text: string;
+    comments: string[];
+}
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const interest_id = searchParams.get("interest_id");
@@ -18,40 +34,19 @@ export async function GET(request: Request) {
         const posts = await getPostsByInterest(interest_id);
         return NextResponse.json(posts, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
+        return NextResponse.json({ error: `Failed to fetch posts: ${error}` }, { status: 500 });
     }
-}
-
-interface PostRequest {
-    user_id: string;
-    interest_id: number;
-    post_title: string;
-    post_text: string;
 }
 
 export async function POST(request: Request) {
     try {
-        // Get and validate request body
         const body: PostRequest = await request.json();
 
-        // Basic validation
-        if (!body.user_id || !body.interest_id || !body.post_text || !body.post_title) {
-            return NextResponse.json(
-                { error: 'Missing required fields' },
-                { status: 400 }
-            );
-        }
-
-        if (body.post_text.length < 1 || body.post_text.length > 1000) {
-            return NextResponse.json(
-                { error: 'Post text must be between 1 and 1000 characters' },
-                { status: 400 }
-            );
-        }
+        console.log('Received request body:', body);
 
         const newPost = await addNewPostToHub({
             user_id: body.user_id,
-            interest_id: Number(body.interest_id),
+            interest_id: body.interest_id,
             post_title: body.post_title,
             post_text: body.post_text
         });
@@ -63,19 +58,31 @@ export async function POST(request: Request) {
             );
         }
 
+        const formattedPost: PostResponse = {
+            post_id: newPost.post_id,
+            interest_id: body.interest_id,
+            post_title: newPost.post_title,
+            post_text: newPost.post_text,
+            comments: []
+        };
+
         return NextResponse.json(
             {
                 message: 'Post created successfully',
-                post: newPost
+                post: formattedPost
             },
             { status: 201 }
         );
 
-    } catch (error) {
-        console.error('Post creation error:', error);
+    } catch (err) {
+        const error = err as Error;  // Type assertion to Error
+        console.error('Detailed server error:', error);
         return NextResponse.json(
-            { error: 'Internal server error' },
+            {
+                error: 'Internal server error',
+                details: error.message || 'Unknown error'
+            },
             { status: 500 }
         );
     }
-};
+}

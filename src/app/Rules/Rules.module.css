@@ -7,7 +7,7 @@
   justify-content: space-between;
   height: 100vh;
   box-sizing: border-box;
-  background-color: #dfdfdf;
+  background-color: #f8f5f3;
 
   padding: 0;
   margin: 0;
@@ -31,9 +31,9 @@
   box-sizing: border-box;
   margin-top: 10px;
   font-family: "N-light";
-  background-color: #f8f5f3;
+  background-color: #dfdfdf;
   max-width: 80vw;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.5px;
 }
 
@@ -47,7 +47,7 @@
 .logoContainer {
   display: flex;
   width: 100vw;
-  height: 25vh;
+  height: 20vh;
   justify-content: flex-end;
   align-items: flex-start;
 }
@@ -58,11 +58,12 @@
   height: 35vh;
   justify-content: flex-start;
   align-items: flex-end;
+  padding-bottom: 10px;
 }
 
 .footerText {
   font-family: "N-ExtraBold";
   font-size: 75px;
   padding-left: 10px;
-  color: #f8f5f3;
+  color: #dfdfdf;
 }

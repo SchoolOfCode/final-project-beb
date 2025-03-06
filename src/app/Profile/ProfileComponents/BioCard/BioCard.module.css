@@ -7,9 +7,13 @@
   height: 20vh;
   overflow: hidden;
   font-family: "N-light";
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.02rem;
   line-height: 110%;
+}
+
+.bioCardContainer:hover {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .boldBio {

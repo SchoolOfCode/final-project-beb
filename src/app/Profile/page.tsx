@@ -5,12 +5,14 @@ import styles from "./Profile.module.css";
 import Image from "next/image";
 import BioCard from "./ProfileComponents/BioCard/BioCard";
 import EditingCard from "./ProfileComponents/EditingCard/EditingCard";
+
 interface User {
   name: string;
   email: string;
   bio: string;
   hubsJoined: string[];
 }
+
 export default function ProfilePage() {
   const [user, setUser] = useState<User>({
     name: "",
@@ -20,6 +22,10 @@ export default function ProfilePage() {
   });
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState<User>(user);
+
+  const [bannerColor, setBannerColor] = useState<string>("#275aff");
+
+
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
     if (storedUser) {
@@ -27,6 +33,7 @@ export default function ProfilePage() {
       setEditedUser(JSON.parse(storedUser));
     }
   }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -41,9 +48,13 @@ export default function ProfilePage() {
     setEditedUser(user);
     setIsEditing(false);
   };
+
   return (
     <div className={styles.profileContainer}>
-      <div className={styles.banner}></div>
+      <div
+        className={styles.banner}
+        style={{ backgroundColor: bannerColor }}
+      ></div>
       <div className={styles.imageEditingContainer}>
         <div className={styles.imageContainer}>
           <Image
@@ -54,11 +65,15 @@ export default function ProfilePage() {
             height={200}
           />
         </div>
-        <EditingCard isEditing={isEditing} setIsEditing={setIsEditing} />
+        <EditingCard
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          setBannerColor={setBannerColor}
+        />
       </div>
       <div className={styles.bioHubsContainer}>
         <BioCard
-          user={user}
+          // user={user}
           editedUser={editedUser}
           isEditing={isEditing}
           handleChange={handleChange}

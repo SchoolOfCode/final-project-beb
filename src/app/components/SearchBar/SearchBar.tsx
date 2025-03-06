@@ -18,6 +18,7 @@ export default function SearchBar() {
   return (
     // <div className={styles.searchBarContainer}>
     <input
+      id="searchBar"
       className={styles.inputBox}
       type="text"
       placeholder="Search Hubs..."

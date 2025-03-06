@@ -1,18 +1,22 @@
-"use client"
-import React, { useState } from "react";
-import styles from "./EventCarousel.module.css"
-// import styles from "./SingleHub.module.css"
-//imported from the styles Single Modules as well ^ 
+"use client";
+import React from "react";
+import styles from "./EventCarousel.module.css";
 
-//This is the event Carousel for the each hub
-//It cycles through these hard coded events for stamps atm
+type Event = {
+  id: number;
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+};
 
-const events = [
+const events: Event[] = [
   {
     id: 1,
     title: "National Stamp Collectors Meetup",
     date: "March 15, 2025",
-    description: "Join fellow collectors for a showcase of rare and unique stamps.",
+    description:
+      "Join fellow collectors for a showcase of rare and unique stamps.",
     image: "/images/stamp_meetup.jpg",
   },
   {
@@ -33,37 +37,34 @@ const events = [
     id: 4,
     title: "Rare Stamps Showcase",
     date: "June 5, 2025",
-    description: "View some of the rarest and most valuable stamps in existence.",
+    description:
+      "View some of the rarest and most valuable stamps in existence.",
+    image: "/images/rare_stamps.jpg",
+  },
+  {
+    id: 5,
+    title: "Rare Stamps Auction",
+    date: "June 10, 2025",
+    description:
+      "View some of the rarest and most valuable stamps in existence.",
     image: "/images/rare_stamps.jpg",
   },
 ];
 
 export default function EventCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextEvent = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length);
-  };
-
-  const prevEvent = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? events.length - 1 : prevIndex - 1
-    );
-  };
-
   return (
-    <div className={styles.Carousel}>
-      <h2>Upcoming Stamp Events</h2>
-      <div className={styles.CarouselContainer}>
-        <button onClick={prevEvent}>&#10094;</button>
-
-        <div className={styles.event}>
-          <h3>{events[currentIndex].title}</h3>
-          <p><strong>Date:</strong> {events[currentIndex].date}</p>
-          <p>{events[currentIndex].description}</p>
-        </div>
-
-        <button onClick={nextEvent}>&#10095;</button>
+    <div className={styles.eventsContainer}>
+      <h2>Upcoming Events</h2>
+      <div className={styles.eventsList}>
+        {events.map((event: Event) => (
+          <div key={event.id} className={styles.eventCard}>
+            <h3>{event.title}</h3>
+            <p>
+              <strong>Date:</strong> {event.date}
+            </p>
+            <p>{event.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

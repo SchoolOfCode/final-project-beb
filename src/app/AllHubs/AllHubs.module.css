@@ -1,7 +1,58 @@
-.banner{
-    background-color: #dfdfdf;
-    padding: 100px;
+.allHubsDiv {
+  height: 100vh;
+  background: linear-gradient(to bottom, #dfdfdf 30%, #f8f5f3 30%);
 }
-.buttons{
-    padding: 10px;
+.bannerDiv {
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardDiv {
+  box-sizing: border-box;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+.buttons {
+  padding: 10px;
+}
+
+.titleContainer {
+  display: flex;
+  width: 33.3%;
+  height: 30vh;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.searchContainer {
+  display: flex;
+  width: 33.3%;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 33.3%;
+}
+
+.flockLogo {
+  font-family: "N-ExtraBold";
+  font-size: 2.5vw;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.hubsTitle {
+  font-family: "N-ExtraBold";
+  font-size: 80px;
+  margin-left: 15px;
+  margin-bottom: 0;
 }

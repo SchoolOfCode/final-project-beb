@@ -1,16 +1,27 @@
-// Fetch all hubs.
-// Add search functionality.
-// Display all hubs dynamically.
-
 "use client";
 import AllHubContainer from "../components/AllHubsContainer/AllHubsContainer";
 import styles from "./AllHubs.module.css";
+import AllHubsSearchBar from "./AllHubsSearchBar/AllHubsSearchBar";
 
-export default function AllHubsPage() {
+const AllHubsPage: React.FC = () => {
   return (
-    <>
-      <div className={styles.banner}></div>
-      <AllHubContainer/>
-    </>
+    <main className={styles.allHubsDiv}>
+      <div className={styles.bannerDiv}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.hubsTitle}>hubs</h1>
+        </div>
+        <div className={styles.searchContainer}>
+          <AllHubsSearchBar />
+        </div>
+        <div className={styles.logoContainer}>
+          <p className={styles.flockLogo}>FLOCK</p>
+        </div>
+      </div>
+      <div className={styles.cardDiv}>
+        <AllHubContainer />
+      </div>
+    </main>
   );
-}
+};
+
+export default AllHubsPage;

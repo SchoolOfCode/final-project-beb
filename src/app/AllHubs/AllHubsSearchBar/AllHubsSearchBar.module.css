@@ -1,0 +1,9 @@
+.searchInput {
+  border: none;
+  border-radius: 10vh;
+  width: 30vw;
+  padding: 12px;
+  font-family: "N-Light";
+  font-size: 2.5vh;
+  margin-bottom: 12px;
+}
